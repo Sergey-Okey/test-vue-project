@@ -42,7 +42,7 @@ export default defineComponent({
 
   h1 {
     text-align: center;
-    color: #42b983;
+    color: #0004e9;
   }
 
   ul {
@@ -59,7 +59,7 @@ export default defineComponent({
 
       a {
         text-decoration: none;
-        color: #42b983;
+        color: #0800e8;
         font-weight: bold;
         transition: color 0.3s;
 

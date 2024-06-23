@@ -43,7 +43,7 @@ export default defineComponent({
 
   h1 {
     text-align: center;
-    color: #42b983;
+    color: #1000ec;
     margin-bottom: 20px;
   }
 

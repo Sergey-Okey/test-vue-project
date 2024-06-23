@@ -71,7 +71,7 @@ export default defineComponent({
 
   h1 {
     text-align: center;
-    color: #42b983;
+    color: #0522e0;
   }
 
   .form-group {
@@ -96,7 +96,7 @@ export default defineComponent({
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #42b983;
+    background-color: #2124da;
     border: none;
     color: white;
     font-weight: bold;
