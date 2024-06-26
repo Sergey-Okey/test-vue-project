@@ -1,20 +1,20 @@
 <template>
-  <div class="create-user">
+  <div :class="style['create-user']">
     <h1>Create User</h1>
     <form @submit.prevent="createUser">
-      <div class="form-group">
+      <div :class="style['form-group']">
         <label for="name">Name:</label>
         <input type="text" v-model="user.name" id="name" required />
       </div>
-      <div class="form-group">
+      <div :class="style['form-group']">
         <label for="email">Email:</label>
         <input type="email" v-model="user.email" id="email" required />
       </div>
-      <div class="form-group">
+      <div :class="style['form-group']">
         <label for="phone">Phone:</label>
         <input type="tel" v-model="user.phone" id="phone" required />
       </div>
-      <div class="form-group">
+      <div :class="style['form-group']">
         <label for="address">Address:</label>
         <input type="text" v-model="user.address.street" id="address" required />
       </div>
@@ -26,10 +26,11 @@
 <script lang="ts">
 import { defineComponent, reactive } from 'vue';
 import axios from 'axios';
+import style from './createUser.module.scss'; // Импортируем модульные стили
 import { User } from '@/types';
 
 export default defineComponent({
-  name: 'UserCreate',
+  name: 'CreateUser',
   setup() {
     const user = reactive<Partial<User>>({
       name: '',
@@ -42,6 +43,7 @@ export default defineComponent({
     });
 
     const createUser = async () => {
+      console.log('User data to be sent:', user);
       try {
         const response = await axios.post('https://jsonplaceholder.typicode.com/users', user);
         alert('User created successfully!');
@@ -54,59 +56,9 @@ export default defineComponent({
 
     return {
       user,
-      createUser
+      createUser,
+      style // Возвращаем стиль для использования в шаблоне
     };
   }
 });
 </script>
-
-<style scoped lang="scss">
-.create-user {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-
-  h1 {
-    text-align: center;
-    color: #0522e0;
-  }
-
-  .form-group {
-    margin-bottom: 15px;
-
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
-
-    input {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      box-sizing: border-box;
-    }
-  }
-
-  button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #2124da;
-    border: none;
-    color: white;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-
-    &:hover {
-      background-color: #369b77;
-    }
-  }
-}
-</style>

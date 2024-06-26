@@ -1,0 +1,48 @@
+.create-user {
+	max-width: 600px;
+	margin: 0 auto;
+	padding: 20px;
+	background: #fff;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+	h1 {
+		text-align: center;
+		color: #42b983;
+	}
+
+	.form-group {
+		margin-bottom: 15px;
+
+		label {
+			display: block;
+			margin-bottom: 5px;
+			font-weight: bold;
+		}
+
+		input {
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			box-sizing: border-box;
+		}
+	}
+
+	button {
+		display: block;
+		width: 100%;
+		padding: 10px;
+		background-color: #42b983;
+		border: none;
+		color: white;
+		font-weight: bold;
+		border-radius: 5px;
+		cursor: pointer;
+		transition: background 0.3s;
+
+		&:hover {
+			background-color: #369b77;
+		}
+	}
+}
