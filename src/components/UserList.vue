@@ -12,7 +12,7 @@
 <script lang="ts">
 import { defineComponent, ref, onMounted } from 'vue';
 import axios from 'axios';
-import style from './userList.module.scss'; // Импортируем модульные стили
+import style from './userList.module.scss';
 
 export default defineComponent({
   name: 'UserList',
@@ -32,7 +32,7 @@ export default defineComponent({
 
     return {
       users,
-      style // Возвращаем стиль для использования в шаблоне
+      style
     };
   }
 });
