@@ -9,31 +9,21 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref, onMounted } from 'vue';
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import style from './userList.module.scss';
 
-export default defineComponent({
-  name: 'UserList',
-  setup() {
-    const users = ref<any[]>([]);
+const users = ref<any[]>([]);
 
-    const fetchUsers = async () => {
-      try {
-        const response = await axios.get('https://jsonplaceholder.typicode.com/users');
-        users.value = response.data;
-      } catch (error) {
-        console.error('Error fetching users:', error);
-      }
-    };
-
-    onMounted(fetchUsers);
-
-    return {
-      users,
-      style
-    };
+const fetchUsers = async () => {
+  try {
+    const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+    users.value = response.data;
+  } catch (error) {
+    console.error('Error fetching users:', error);
   }
-});
+};
+
+onMounted(fetchUsers);
 </script>
